@@ -42,7 +42,7 @@
 
         <center>
             <!--Nav侧栏菜单-->
-            <JFXDrawer fx:id="drawer" defaultDrawerSize="250" direction="LEFT">
+            <JFXDrawer fx:id="drawer" defaultDrawerSize="300" direction="LEFT">
                 <styleClass>
                     <String fx:value="body"/>
                 </styleClass>

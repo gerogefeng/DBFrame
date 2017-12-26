@@ -31,11 +31,11 @@ public class App extends Application {
 
         // 使用Material Design风格标题栏
         JFXDecorator decorator = new JFXDecorator(stage, container.getView());
-        decorator.setCustomMaximize(false);
+        decorator.setCustomMaximize(true);
         decorator.setText("DB Frame 数据库工具");
 
         // 注册CSS样式
-        Scene scene = new Scene(decorator, 1270, 768);
+        Scene scene = new Scene(decorator, 1270, 800);
         final ObservableList<String> stylesheets = scene.getStylesheets();
         stylesheets.addAll(App.class.getResource("/css/main.css").toExternalForm());
 

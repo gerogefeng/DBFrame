@@ -37,6 +37,12 @@ public class MainView extends BaseView {
     @Override
     protected void initView(ResourceBundle resources) throws Exception {
         context = new ViewFlowContext();
+        final Duration containerAnimationDuration = Duration.millis(320);
+
+        // 加载首页面内容
+        Flow innerFlow = new Flow(DBListView.class);
+        final FlowHandler flowHandler = innerFlow.createHandler(context);
+        drawer.setContent(flowHandler.start(new AnimatedFlowContainer(containerAnimationDuration, ContainerAnimations.SWIPE_LEFT)));
 
         // 加载POP菜单
         Region region = FXMLLoader.load(getClass().getResource("/layout/pop_menu_main.fxml"));
@@ -45,8 +51,13 @@ public class MainView extends BaseView {
         // 加载Nav菜单
         Flow sideMenuFlow = new Flow(NavMenuView.class);
         final FlowHandler sideMenuFlowHandler = sideMenuFlow.createHandler(context);
-        final Duration containerAnimationDuration = Duration.millis(320);
+
         drawer.setSidePane(sideMenuFlowHandler.start(new AnimatedFlowContainer(containerAnimationDuration, ContainerAnimations.SWIPE_LEFT)));
+
+        // 注册相关属性
+        context.register("ContentFlowHandler", flowHandler);
+        context.register("ContentFlow", innerFlow);
+        context.register("ContentPane", drawer.getContent().get(0));
     }
 
     @Override
