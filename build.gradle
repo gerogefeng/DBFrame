@@ -1,0 +1,17 @@
+group 'cn.devifish'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.datafx:datafx:8.0.1'
+    compile 'io.datafx:flow:8.0.1'
+    compile 'com.jfoenix:jfoenix:1.11.1'
+}
