@@ -37,7 +37,7 @@ public class MainView extends BaseView {
     @Override
     protected void initView(ResourceBundle resources) throws Exception {
         context = new ViewFlowContext();
-        final Duration containerAnimationDuration = Duration.millis(320);
+        final Duration containerAnimationDuration = Duration.millis(500);
 
         // 加载首页面内容
         Flow innerFlow = new Flow(DBListView.class);
@@ -51,7 +51,6 @@ public class MainView extends BaseView {
         // 加载Nav菜单
         Flow sideMenuFlow = new Flow(NavMenuView.class);
         final FlowHandler sideMenuFlowHandler = sideMenuFlow.createHandler(context);
-
         drawer.setSidePane(sideMenuFlowHandler.start(new AnimatedFlowContainer(containerAnimationDuration, ContainerAnimations.SWIPE_LEFT)));
 
         // 注册相关属性

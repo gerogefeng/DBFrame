@@ -9,6 +9,7 @@
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
 <?import com.jfoenix.controls.JFXDrawer?>
+
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:id="root">

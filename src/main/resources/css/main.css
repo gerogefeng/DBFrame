@@ -1,79 +1,21 @@
-.root {
-    -fx-font-family: "Microsoft YaHei UI, Roboto";
-}
+.root {-fx-font-family: "Microsoft YaHei";-fx-font-smoothing-type: lcd;}
 
 /*标题栏样式*/
-.jfx-decorator {
-    -fx-decorator-color: derive(#00BCD4, -10%);
-    -fx-font-weight: bold;
-}
-
-.jfx-decorator .jfx-decorator-buttons-container {
-    -fx-background-color: -fx-decorator-color;
-}
-
-.jfx-decorator .resize-border {
-    -fx-border-color: -fx-decorator-color;
-    -fx-border-width: 0 1 1 1;
-}
-
-.jfx-decorator .jfx-decorator-title-container .jfx-decorator-text {
-    -fx-fill: WHITE;
-    -fx-font-size: 16;
-}
+.jfx-decorator {-fx-decorator-color: derive(#00BCD4, -10%);}
+.jfx-decorator .jfx-decorator-buttons-container {-fx-background-color: -fx-decorator-color;}
+.jfx-decorator .resize-border {-fx-border-color: -fx-decorator-color;-fx-border-width: 0 1 1 1;}
+.jfx-decorator .jfx-decorator-title-container .jfx-decorator-text {-fx-fill: WHITE;-fx-font-size: 16;-fx-font-weight: bold;}
 
 /*工具栏样式*/
-.jfx-tool-bar {
-    -fx-font-size: 20.0;
-    -fx-font-weight: BOLD;
-    -fx-background-color: #00BCD4;
-    -fx-pref-width: 100.0%;
-    -fx-pref-height: 64.0px;
-}
-
-.jfx-tool-bar HBox {
-    -fx-alignment: center;
-    -fx-spacing: 25.0;
-    -fx-padding: 0.0 10.0;
-}
-
-.jfx-tool-bar Label {
-    -fx-text-fill: WHITE;
-}
-
-.jfx-tool-bar .jfx-options-burger {
-    -fx-padding: 22px;
-}
-
-.jfx-tool-bar .jfx-options-burger StackPane {
-    -fx-pref-width: 4px;
-}
-
-.jfx-tool-bar .jfx-rippler {
-    -jfx-rippler-fill: WHITE;
-}
-
-.option-list-view {
-    -fx-pref-width: 160.0px;
-    -fx-background-color: WHITE;
-}
-
-.option-jfx-list-view-icon {
-    -fx-fill: #00BCD4;
-    -fx-padding: 0.0 10.0 0.0 5.0;
-    -fx-cursor: hand;
-}
+.jfx-tool-bar {-fx-font-size: 24;-fx-font-weight: bold;-fx-background-color: #00BCD4;-fx-pref-width: 100%;-fx-pref-height: 64px;}
+.jfx-tool-bar HBox {-fx-alignment: center;-fx-spacing: 25.0;-fx-padding: 0.0 10.0;}
+.jfx-tool-bar Label {-fx-text-fill: WHITE;}
+.jfx-tool-bar .jfx-options-burger {-fx-padding: 22px;}
+.jfx-tool-bar .jfx-options-burger StackPane {-fx-pref-width: 4px;}
+.jfx-tool-bar .jfx-rippler {-jfx-rippler-fill: WHITE;}
+.option-list-view {-fx-pref-width: 160.0px;-fx-background-color: WHITE;}
+.option-jfx-list-view-icon {-fx-fill: #00BCD4;-fx-padding: 0 10 0 5;-fx-cursor: hand;}
 
 /*工具栏图标样式*/
-.jfx-hamburger {
-    -fx-padding: 10.0;
-    -fx-spacing: 4px;
-    -fx-cursor: hand;
-}
-
-.jfx-hamburger StackPane {
-    -fx-pref-width: 30px;
-    -fx-pref-height: 4px;
-    -fx-background-color: #FFF;
-    -fx-background-radius: 5px;
-}
+.jfx-hamburger {-fx-padding: 10.0;-fx-spacing: 4px;-fx-cursor: hand;}
+.jfx-hamburger StackPane {-fx-pref-width: 30px;-fx-pref-height: 4px;-fx-background-color: #FFF;-fx-background-radius: 5px;}
