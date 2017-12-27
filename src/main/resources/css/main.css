@@ -19,3 +19,9 @@
 /*工具栏图标样式*/
 .jfx-hamburger {-fx-padding: 10.0;-fx-spacing: 4px;-fx-cursor: hand;}
 .jfx-hamburger StackPane {-fx-pref-width: 30px;-fx-pref-height: 4px;-fx-background-color: #FFF;-fx-background-radius: 5px;}
+
+/*数据库列表样式*/
+.card-view {-fx-min-height: 270px;-fx-pref-height: 270px;-fx-max-height: 270px;-fx-min-width: 225px;-fx-max-width: 225px;-fx-pref-width: 225px;}
+.card-view .card-header {-fx-background-radius: 5 5 0 0;-fx-background-color: #99C286;}
+.card-view .card-body {-fx-background-radius: 0 0 5 5; -fx-background-color: #F5F5F5;}
+.card-view .card-button {-fx-pref-height: 40px;-fx-pref-width: 40px;-fx-background-radius: 40;-fx-background-color:#56456c;}

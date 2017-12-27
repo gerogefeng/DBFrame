@@ -8,20 +8,19 @@ import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.svg.SVGGlyph;
 import io.datafx.controller.ViewController;
+import io.datafx.controller.flow.Flow;
+import io.datafx.controller.flow.container.DefaultFlowContainer;
+import io.datafx.controller.flow.context.FXMLViewFlowContext;
+import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -32,6 +31,9 @@ import static javafx.animation.Interpolator.EASE_BOTH;
 
 @ViewController(value = "/layout/db_list_view.fxml")
 public class DBListView extends BaseView {
+
+    @FXMLViewFlowContext
+    private ViewFlowContext context;
 
     @FXML private ScrollPane scrollPane;
     @FXML private JFXMasonryPane masonryPane;
@@ -48,41 +50,25 @@ public class DBListView extends BaseView {
 
     @Override
     protected void initView(ResourceBundle resources) throws Exception {
-        new CardView();
+        context = new ViewFlowContext();
+
+        Flow cardViewFlow = new Flow(CardView.class);
         ArrayList<Node> children = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            StackPane child = new StackPane();
-            double width = 225;
-            child.setMinWidth(width);
-            child.setMaxWidth(width);
-            child.setPrefWidth(width);
-            double height = 180;
-            child.setMinHeight(height);
-            child.setMaxHeight(height);
-            child.setPrefHeight(height);
-            JFXDepthManager.setDepth(child, 1);
-            children.add(child);
+        for (int i = 0; i < 9; i++) {
+            DefaultFlowContainer container = new DefaultFlowContainer();
+            cardViewFlow.createHandler(context).start(container);
+            StackPane cardView = (StackPane) container.getView().getChildren().get(0);
 
-            // create content
-            StackPane header = new StackPane();
+            JFXDepthManager.setDepth(cardView, 1);
+
+            StackPane header = (StackPane) cardView.lookup("#header");
+            JFXButton button = (JFXButton) cardView.lookup("#button");
+
             String headerColor = DefaultColor[i % 12];
-            header.setStyle("-fx-background-radius: 5 5 0 0; -fx-background-color: " + headerColor);
-            VBox.setVgrow(header, Priority.ALWAYS);
-            StackPane body = new StackPane();
-            body.setMinHeight(70);
-            VBox content = new VBox();
-            content.getChildren().addAll(header, body);
-            body.setStyle("-fx-background-radius: 0 0 5 5; -fx-background-color: rgb(255,255,255,0.87);");
+            header.setStyle("-fx-background-color: " + headerColor);
 
-
-            // create button
-            JFXButton button = new JFXButton("");
-            button.setButtonType(JFXButton.ButtonType.RAISED);
-            button.setStyle("-fx-background-radius: 40;-fx-background-color: " + DefaultColor[(int) ((Math.random() * 12) % 12)]);
-            button.setPrefSize(40, 40);
+            button.setStyle("-fx-background-color: " + DefaultColor[(int) ((Math.random() * 12) % 12)]);
             button.setRipplerFill(Color.valueOf(headerColor));
-            button.setScaleX(0);
-            button.setScaleY(0);
             SVGGlyph glyph = new SVGGlyph(-1,
                     "test",
                     "M1008 6.286q18.857 13.714 15.429 36.571l-146.286 877.714q-2.857 16.571-18.286 25.714-8 4.571-17.714 4.571-6.286 "
@@ -93,12 +79,12 @@ public class DBListView extends BaseView {
                     Color.WHITE);
             glyph.setSize(20, 20);
             button.setGraphic(glyph);
-            button.translateYProperty().bind(Bindings.createDoubleBinding(() -> {
-                return header.getBoundsInParent().getHeight() - button.getHeight() / 2;
-            }, header.boundsInParentProperty(), button.heightProperty()));
-            StackPane.setMargin(button, new Insets(0, 12, 0, 0));
-            StackPane.setAlignment(button, Pos.TOP_RIGHT);
+            button.translateYProperty().bind(Bindings.createDoubleBinding(() ->
+                            header.getBoundsInParent().getHeight() - button.getHeight() / 2, header.boundsInParentProperty(), button.heightProperty()));
 
+            // 对Button设置动画 从0到pref大小
+            button.setScaleX(0);
+            button.setScaleY(0);
             Timeline animation = new Timeline(new KeyFrame(Duration.millis(240),
                     new KeyValue(button.scaleXProperty(),
                             1,
@@ -108,7 +94,8 @@ public class DBListView extends BaseView {
                             EASE_BOTH)));
             animation.setDelay(Duration.millis(100 * i + 1000));
             animation.play();
-            child.getChildren().addAll(content, button);
+
+            children.add(cardView);
         }
         masonryPane.getChildren().addAll(children);
         Platform.runLater(() -> scrollPane.requestLayout());

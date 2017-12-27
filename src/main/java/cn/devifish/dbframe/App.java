@@ -20,6 +20,9 @@ public class App extends Application {
     }
 
     @Override
+    public void init() throws Exception { }
+
+    @Override
     public void start(Stage stage) throws Exception {
         Flow flow = new Flow(MainView.class);
         DefaultFlowContainer container = new DefaultFlowContainer();

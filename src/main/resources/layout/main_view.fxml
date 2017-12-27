@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import com.jfoenix.controls.JFXToolbar?>
-<?import com.jfoenix.controls.JFXRippler?>
-<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.*?>
 <?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
-<?import com.jfoenix.controls.JFXDrawer?>
-
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:id="root">
@@ -18,7 +12,7 @@
 
         <top>
             <!--Toolbar工具栏-->
-            <VBox spacing="20" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+            <VBox spacing="20">
                 <JFXToolbar>
                     <leftItems>
                         <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
@@ -43,11 +37,7 @@
 
         <center>
             <!--Nav侧栏菜单-->
-            <JFXDrawer fx:id="drawer" defaultDrawerSize="300" direction="LEFT">
-                <styleClass>
-                    <String fx:value="body"/>
-                </styleClass>
-            </JFXDrawer>
+            <JFXDrawer fx:id="drawer" styleClass="body" defaultDrawerSize="300" direction="LEFT" />
         </center>
 
     </BorderPane>

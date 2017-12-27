@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import com.jfoenix.controls.JFXListView?>
-<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-    <styleClass>
-        <String fx:value="nav-menu"/>
-    </styleClass>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<StackPane
+        fx:id="root"
+        styleClass="nav-menu"
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/2.2">
+
     <JFXListView fx:id="list">
         <Label fx:id="button">Buttons</Label>
     </JFXListView>
+
 </StackPane>
