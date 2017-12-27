@@ -1,6 +1,7 @@
-package cn.devifish.dbframe.view;
+package cn.devifish.dbframe.view.module.dblist;
 
 import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.view.widget.CardView;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXScrollPane;
@@ -13,6 +14,7 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -46,6 +48,7 @@ public class DBListView extends BaseView {
 
     @Override
     protected void initView(ResourceBundle resources) throws Exception {
+        new CardView();
         ArrayList<Node> children = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             StackPane child = new StackPane();

@@ -1,4 +1,4 @@
-package cn.devifish.dbframe.view;
+package cn.devifish.dbframe.view.module.main;
 
 import io.datafx.controller.ViewController;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;

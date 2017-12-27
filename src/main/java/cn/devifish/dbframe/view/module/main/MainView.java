@@ -1,6 +1,7 @@
-package cn.devifish.dbframe.view;
+package cn.devifish.dbframe.view.module.main;
 
 import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.view.module.dblist.DBListView;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPopup;
