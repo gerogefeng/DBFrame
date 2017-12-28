@@ -13,4 +13,5 @@ repositories {
 dependencies {
     compile 'io.datafx:flow:8.0.1'
     compile 'com.jfoenix:jfoenix:1.11.1'
+    compile 'com.alibaba:fastjson:1.2.44'
 }

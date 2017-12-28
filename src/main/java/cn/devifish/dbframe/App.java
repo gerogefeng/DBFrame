@@ -37,7 +37,7 @@ public class App extends Application {
         decorator.setText("DB Frame 数据库工具");
 
         // 注册CSS样式
-        Scene scene = new Scene(decorator, 1270, 800);
+        Scene scene = new Scene(decorator, 1205, 800);
         scene.getStylesheets().addAll(getClass().getResource("/css/main.css").toExternalForm());
 
         stage.setScene(scene);

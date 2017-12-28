@@ -2,19 +2,27 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <StackPane styleClass="card-view" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1">
 
     <VBox>
         <StackPane fx:id="header" styleClass="card-header" VBox.vgrow="ALWAYS">
-           <!-- <ImageView blendMode="SCREEN">
+            <ImageView>
+                <viewport>
+                    <Rectangle2D width="230" height="240" />
+                </viewport>
                <Image url="@../images/img.jpg" />
-            </ImageView>-->
+            </ImageView>
         </StackPane>
         <StackPane minHeight="70" styleClass="card-body">
-            <Label text="sss" />
-            <Label text="sss" />
+            <VBox style="-fx-padding: 0 0 0 8">
+                <Label fx:id="title" minHeight="40" style="-fx-font-size: 20px;-fx-font-weight: bold"/>
+                <Label fx:id="subTitle" minHeight="20" style="-fx-font-size: 16px"/>
+            </VBox>
         </StackPane>
     </VBox>
 

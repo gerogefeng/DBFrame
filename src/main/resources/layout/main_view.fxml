@@ -7,7 +7,6 @@
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:id="root">
-
     <BorderPane>
 
         <top>
@@ -22,7 +21,7 @@
                                 </JFXHamburger>
                             </StackPane>
                         </JFXRippler>
-                        <Label>主页</Label>
+                        <Label text="主页"/>
                     </leftItems>
                     <rightItems>
                         <JFXRippler fx:id="optionsRippler" maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
@@ -41,5 +40,4 @@
         </center>
 
     </BorderPane>
-
 </StackPane>

@@ -8,15 +8,13 @@
              xmlns:fx="http://javafx.com/fxml/1"
              fx:id="toolbarPopupList"
              styleClass="option-list-view">
-    <Label>
-        Contact Us
+    <Label text="Contact Us">
         <graphic>
             <StackPane styleClass="custom-jfx-list-view-icon-container">
             </StackPane>
         </graphic>
     </Label>
-    <Label>
-        Exit
+    <Label text="Exit">
         <graphic>
             <StackPane styleClass="custom-jfx-list-view-icon-container">
             </StackPane>

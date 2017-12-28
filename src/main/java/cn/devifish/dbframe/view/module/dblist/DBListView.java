@@ -19,6 +19,7 @@ import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -63,6 +64,11 @@ public class DBListView extends BaseView {
 
             StackPane header = (StackPane) cardView.lookup("#header");
             JFXButton button = (JFXButton) cardView.lookup("#button");
+            Label title = (Label) cardView.lookup("#title");
+            Label subTitle = (Label) cardView.lookup("#subTitle");
+
+            title.setText("阿里云");
+            subTitle.setText("127.0.0.1 (MySql)");
 
             String headerColor = DefaultColor[i % 12];
             header.setStyle("-fx-background-color: " + headerColor);
@@ -79,19 +85,20 @@ public class DBListView extends BaseView {
                     Color.WHITE);
             glyph.setSize(20, 20);
             button.setGraphic(glyph);
-            button.translateYProperty().bind(Bindings.createDoubleBinding(() ->
-                            header.getBoundsInParent().getHeight() - button.getHeight() / 2, header.boundsInParentProperty(), button.heightProperty()));
+            button.translateYProperty().bind(
+                    Bindings.createDoubleBinding(() -> {
+                        return header.getBoundsInParent().getHeight() - button.getHeight() / 2;
+                    }, header.boundsInParentProperty(), button.heightProperty())
+            );
 
             // 对Button设置动画 从0到pref大小
             button.setScaleX(0);
             button.setScaleY(0);
-            Timeline animation = new Timeline(new KeyFrame(Duration.millis(240),
-                    new KeyValue(button.scaleXProperty(),
-                            1,
-                            EASE_BOTH),
-                    new KeyValue(button.scaleYProperty(),
-                            1,
-                            EASE_BOTH)));
+            Timeline animation = new Timeline(new KeyFrame(
+                    Duration.millis(240),
+                    new KeyValue(button.scaleXProperty(), 1, EASE_BOTH),
+                    new KeyValue(button.scaleYProperty(), 1, EASE_BOTH))
+            );
             animation.setDelay(Duration.millis(100 * i + 1000));
             animation.play();
 
