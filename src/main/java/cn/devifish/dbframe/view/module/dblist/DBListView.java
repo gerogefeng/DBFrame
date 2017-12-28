@@ -33,9 +33,6 @@ import static javafx.animation.Interpolator.EASE_BOTH;
 @ViewController(value = "/layout/db_list_view.fxml")
 public class DBListView extends BaseView {
 
-    @FXMLViewFlowContext
-    private ViewFlowContext context;
-
     @FXML private ScrollPane scrollPane;
     @FXML private JFXMasonryPane masonryPane;
 
@@ -50,8 +47,8 @@ public class DBListView extends BaseView {
     }
 
     @Override
-    protected void initView(ResourceBundle resources) throws Exception {
-        context = new ViewFlowContext();
+    protected void initView() throws Exception {
+        ViewFlowContext context = getContext();
 
         Flow cardViewFlow = new Flow(CardView.class);
         ArrayList<Node> children = new ArrayList<>();
@@ -70,11 +67,8 @@ public class DBListView extends BaseView {
             title.setText("阿里云");
             subTitle.setText("127.0.0.1 (MySql)");
 
-            String headerColor = DefaultColor[i % 12];
-            header.setStyle("-fx-background-color: " + headerColor);
-
             button.setStyle("-fx-background-color: " + DefaultColor[(int) ((Math.random() * 12) % 12)]);
-            button.setRipplerFill(Color.valueOf(headerColor));
+            button.setRipplerFill(Color.valueOf(DefaultColor[i % 12]));
             SVGGlyph glyph = new SVGGlyph(-1,
                     "test",
                     "M1008 6.286q18.857 13.714 15.429 36.571l-146.286 877.714q-2.857 16.571-18.286 25.714-8 4.571-17.714 4.571-6.286 "
@@ -112,7 +106,9 @@ public class DBListView extends BaseView {
 
     @Override
     protected void initEvent() throws Exception {
-
+        masonryPane.setOnMouseClicked(event -> {
+            System.out.println(event.getPickResult().getIntersectedFace());
+        });
     }
 
 }

@@ -15,12 +15,10 @@ public class App extends Application {
     @FXMLViewFlowContext
     private ViewFlowContext flowContext;
 
-    public App() {
-        this.flowContext = new ViewFlowContext();
-    }
-
     @Override
-    public void init() throws Exception { }
+    public void init() throws Exception {
+        flowContext = new ViewFlowContext();
+    }
 
     @Override
     public void start(Stage stage) throws Exception {

@@ -24,9 +24,6 @@ import java.util.ResourceBundle;
 @ViewController(value = "/layout/main_view.fxml")
 public class MainView extends BaseView {
 
-    @FXMLViewFlowContext
-    private ViewFlowContext context;
-
     @FXML private StackPane root;
     @FXML private StackPane titleBurgerContainer;
     @FXML private StackPane optionsBurger;
@@ -36,8 +33,8 @@ public class MainView extends BaseView {
     private JFXPopup toolbarPopup;
 
     @Override
-    protected void initView(ResourceBundle resources) throws Exception {
-        context = new ViewFlowContext();
+    protected void initView() throws Exception {
+        ViewFlowContext context = getContext();
         final Duration containerAnimationDuration = Duration.millis(500);
 
         // 加载首页面内容
@@ -55,7 +52,6 @@ public class MainView extends BaseView {
         drawer.setSidePane(sideMenuFlowHandler.start(new AnimatedFlowContainer(containerAnimationDuration, ContainerAnimations.SWIPE_LEFT)));
 
         // 注册相关属性
-        context.register("ContentFlowHandler", flowHandler);
         context.register("ContentFlow", innerFlow);
         context.register("ContentPane", drawer.getContent().get(0));
     }

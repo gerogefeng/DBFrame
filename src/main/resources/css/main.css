@@ -8,12 +8,12 @@
 
 /*工具栏样式*/
 .jfx-tool-bar {-fx-font-size: 24;-fx-font-weight: bold;-fx-background-color: #00BCD4;-fx-pref-width: 100%;-fx-pref-height: 64px;}
-.jfx-tool-bar HBox {-fx-alignment: center;-fx-spacing: 25.0;-fx-padding: 0.0 10.0;}
+.jfx-tool-bar HBox {-fx-alignment: center;-fx-spacing: 25;-fx-padding: 0.0 10;}
 .jfx-tool-bar Label {-fx-text-fill: WHITE;}
 .jfx-tool-bar .jfx-options-burger {-fx-padding: 22px;}
 .jfx-tool-bar .jfx-options-burger StackPane {-fx-pref-width: 4px;}
 .jfx-tool-bar .jfx-rippler {-jfx-rippler-fill: WHITE;}
-.option-list-view {-fx-pref-width: 160.0px;-fx-background-color: WHITE;}
+.option-list-view {-fx-pref-width: 160px;-fx-background-color: WHITE;}
 .option-jfx-list-view-icon {-fx-fill: #00BCD4;-fx-padding: 0 10 0 5;-fx-cursor: hand;}
 
 /*工具栏图标样式*/
