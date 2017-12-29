@@ -1,8 +1,7 @@
-package cn.devifish.dbframe.view.module.main;
+package cn.devifish.dbframe.view.main;
 
 import cn.devifish.dbframe.base.BaseView;
-import cn.devifish.dbframe.view.module.dblist.DBListView;
-import cn.devifish.dbframe.view.widget.MainToolbarPopup;
+import cn.devifish.dbframe.view.dblist.DBListView;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPopup;
@@ -14,8 +13,6 @@ import io.datafx.controller.flow.container.ContainerAnimations;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 

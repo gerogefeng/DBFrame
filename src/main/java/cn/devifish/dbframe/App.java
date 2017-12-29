@@ -1,6 +1,6 @@
 package cn.devifish.dbframe;
 
-import cn.devifish.dbframe.view.module.main.MainView;
+import cn.devifish.dbframe.view.main.MainView;
 import com.jfoenix.controls.JFXDecorator;
 import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.container.DefaultFlowContainer;

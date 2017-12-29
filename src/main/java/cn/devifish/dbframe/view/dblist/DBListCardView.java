@@ -1,4 +1,4 @@
-package cn.devifish.dbframe.view.widget;
+package cn.devifish.dbframe.view.dblist;
 
 import cn.devifish.dbframe.base.BaseView;
 import com.jfoenix.controls.JFXButton;

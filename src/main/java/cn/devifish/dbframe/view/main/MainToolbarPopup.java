@@ -1,4 +1,4 @@
-package cn.devifish.dbframe.view.widget;
+package cn.devifish.dbframe.view.main;
 
 import cn.devifish.dbframe.base.BaseView;
 import cn.devifish.dbframe.util.StringUtil;
