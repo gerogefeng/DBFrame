@@ -1,7 +1,7 @@
 package cn.devifish.dbframe.view.module.dblist;
 
 import cn.devifish.dbframe.base.BaseView;
-import cn.devifish.dbframe.view.widget.CardView;
+import cn.devifish.dbframe.view.widget.DBListCardView;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXScrollPane;
@@ -48,7 +48,7 @@ public class DBListView extends BaseView {
 
     @Override
     protected void initView() throws Exception {
-        Flow cardViewFlow = new Flow(CardView.class);
+        Flow cardViewFlow = new Flow(DBListCardView.class);
         ArrayList<Node> children = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             final int index = i;

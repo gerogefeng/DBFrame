@@ -2,6 +2,7 @@ package cn.devifish.dbframe.view.module.main;
 
 import cn.devifish.dbframe.base.BaseView;
 import cn.devifish.dbframe.view.module.dblist.DBListView;
+import cn.devifish.dbframe.view.widget.MainToolbarPopup;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXPopup;
@@ -40,8 +41,8 @@ public class MainView extends BaseView {
         drawer.setContent(flowHandler.start(new AnimatedFlowContainer(containerAnimationDuration, ContainerAnimations.SWIPE_LEFT)));
 
         // 加载POP菜单
-        Region region = FXMLLoader.load(getClass().getResource("/layout/pop_menu_main.fxml"));
-        toolbarPopup = new JFXPopup(region);
+        Flow toolbarPopupFlow = new Flow(MainToolbarPopup.class);
+        toolbarPopup = new JFXPopup(toolbarPopupFlow.createHandler().start());
 
         // 加载Nav菜单
         Flow sideMenuFlow = new Flow(NavMenuView.class);

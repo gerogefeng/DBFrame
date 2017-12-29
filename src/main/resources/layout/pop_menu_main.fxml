@@ -6,15 +6,15 @@
 
 <JFXListView xmlns="http://javafx.com/javafx/8"
              xmlns:fx="http://javafx.com/fxml/1"
-             fx:id="toolbarPopupList"
+             fx:id="toolbarPopup"
              styleClass="option-list-view">
-    <Label text="Contact Us">
+    <Label fx:id="about" text="关于">
         <graphic>
             <StackPane styleClass="custom-jfx-list-view-icon-container">
             </StackPane>
         </graphic>
     </Label>
-    <Label text="Exit">
+    <Label fx:id="exit" text="关闭">
         <graphic>
             <StackPane styleClass="custom-jfx-list-view-icon-container">
             </StackPane>

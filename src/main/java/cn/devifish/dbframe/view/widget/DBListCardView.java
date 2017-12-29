@@ -10,7 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 @ViewController(value = "/layout/db_list_item.fxml")
-public class CardView extends BaseView {
+public class DBListCardView extends BaseView {
 
     @FXML private JFXButton button;
     @FXML private StackPane header;
