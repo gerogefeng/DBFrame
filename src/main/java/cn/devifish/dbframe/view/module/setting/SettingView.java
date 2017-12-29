@@ -9,9 +9,4 @@ public class SettingView extends BaseView {
 
     }
 
-    @Override
-    protected void initEvent() throws Exception {
-
-    }
-
 }

@@ -2,11 +2,8 @@ package cn.devifish.dbframe.base;
 
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
-import javafx.fxml.Initializable;
 
 import javax.annotation.PostConstruct;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public abstract class BaseView {
 
@@ -14,8 +11,9 @@ public abstract class BaseView {
     private ViewFlowContext context;
 
     @PostConstruct
-    public void init() {
+    private void init() {
         try {
+            initVar(context);
             initView();
             initEvent();
         }catch (Exception e) {
@@ -23,8 +21,9 @@ public abstract class BaseView {
         }
     }
 
+    protected void initVar(ViewFlowContext context) throws Exception {}
     protected abstract void initView() throws Exception;
-    protected abstract void initEvent() throws Exception;
+    protected void initEvent() throws Exception {}
 
     protected ViewFlowContext getContext() {
         return context;

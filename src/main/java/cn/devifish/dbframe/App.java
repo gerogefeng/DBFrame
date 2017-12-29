@@ -13,21 +13,18 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @FXMLViewFlowContext
-    private ViewFlowContext flowContext;
+    private ViewFlowContext context;
 
     @Override
     public void init() throws Exception {
-        flowContext = new ViewFlowContext();
+        context = new ViewFlowContext();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
         Flow flow = new Flow(MainView.class);
         DefaultFlowContainer container = new DefaultFlowContainer();
-
-        // 注册Stage到Context
-        flowContext.register("Stage", stage);
-        flow.createHandler(flowContext).start(container);
+        flow.createHandler(context).start(container);
 
         // 使用Material Design风格标题栏
         JFXDecorator decorator = new JFXDecorator(stage, container.getView());
@@ -37,6 +34,9 @@ public class App extends Application {
         // 注册CSS样式
         Scene scene = new Scene(decorator, 1205, 800);
         scene.getStylesheets().addAll(getClass().getResource("/css/main.css").toExternalForm());
+
+        // 注册相关属性
+        context.register("Stage", stage);
 
         stage.setScene(scene);
         stage.show();

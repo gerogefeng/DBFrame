@@ -13,8 +13,4 @@ public class NavMenuView extends BaseView {
 
     }
 
-    @Override
-    protected void initEvent() throws Exception {
-
-    }
 }

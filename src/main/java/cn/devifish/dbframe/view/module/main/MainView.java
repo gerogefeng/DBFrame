@@ -10,7 +10,6 @@ import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.container.AnimatedFlowContainer;
 import io.datafx.controller.flow.container.ContainerAnimations;
-import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
@@ -18,8 +17,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-
-import java.util.ResourceBundle;
 
 @ViewController(value = "/layout/main_view.fxml")
 public class MainView extends BaseView {
