@@ -5,6 +5,7 @@ import cn.devifish.dbframe.view.widget.DBListCardView;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXScrollPane;
+import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.effects.JFXDepthManager;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.flow.Flow;
@@ -29,8 +30,11 @@ import static javafx.animation.Interpolator.EASE_BOTH;
 @ViewController(value = "/layout/db_list_view.fxml")
 public class DBListView extends BaseView {
 
+    @FXML private StackPane root;
     @FXML private ScrollPane scrollPane;
     @FXML private JFXMasonryPane masonryPane;
+
+    private JFXSnackbar snackbar;
 
     private static final String[] DefaultColor;
 
@@ -44,10 +48,14 @@ public class DBListView extends BaseView {
 
     @Override
     protected void initVar(ViewFlowContext context) throws Exception {
+        snackbar = new JFXSnackbar(root);
+        snackbar.setPrefWidth(300);
     }
 
     @Override
     protected void initView() throws Exception {
+
+        // 加载数据库列表
         Flow cardViewFlow = new Flow(DBListCardView.class);
         ArrayList<Node> children = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
@@ -78,10 +86,11 @@ public class DBListView extends BaseView {
             animation.setDelay(Duration.millis(100 * index + 1000));
             animation.play();
 
+            // 绑定数据
             title.setText("阿里云");
             subTitle.setText("127.0.0.1 (MySql)");
             button.setOnAction(event -> {
-                System.out.println(index);
+                snackbar.fireEvent(new JFXSnackbar.SnackbarEvent("你点击了 " + index));
             });
 
             children.add(cardView);

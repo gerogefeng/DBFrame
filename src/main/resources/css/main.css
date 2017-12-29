@@ -20,6 +20,14 @@
 .jfx-hamburger {-fx-padding: 10.0;-fx-spacing: 4px;-fx-cursor: hand;}
 .jfx-hamburger StackPane {-fx-pref-width: 30px;-fx-pref-height: 4px;-fx-background-color: #FFF;-fx-background-radius: 5px;}
 
+/*popup及snackber样式*/
+.jfx-popup-overlay-pane {-fx-background-color: transparent;}
+.jfx-popup-container {-fx-background-color: WHITE;-fx-pref-width: 151.0px;}
+.popup-list-view {-fx-pref-width: 150.0px;}
+.jfx-snackbar-content {-fx-background-color: #323232;}
+.jfx-snackbar-toast {-fx-text-fill: WHITE;}
+.jfx-snackbar-action {-fx-text-fill: #ff4081;}
+
 /*数据库列表样式*/
 .card-view {-fx-min-height: 270px;-fx-pref-height: 270px;-fx-max-height: 270px;-fx-min-width: 225px;-fx-max-width: 225px;-fx-pref-width: 225px;}
 .card-view .card-header {-fx-background-radius: 5 5 0 0;-fx-background-color: #99C286;}

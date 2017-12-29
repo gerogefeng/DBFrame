@@ -32,9 +32,8 @@ public class DBListCardView extends BaseView {
 
         // 设置按钮位置
         button.translateYProperty().bind(
-                Bindings.createDoubleBinding(() -> {
-                    return header.getBoundsInParent().getHeight() - button.getHeight() / 2;
-                }, header.boundsInParentProperty(), button.heightProperty())
+                Bindings.createDoubleBinding(() -> header.getBoundsInParent().getHeight() - button.getHeight() / 2,
+                        header.boundsInParentProperty(), button.heightProperty())
         );
 
     }

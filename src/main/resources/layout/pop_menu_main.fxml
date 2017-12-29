@@ -14,7 +14,7 @@
             </StackPane>
         </graphic>
     </Label>
-    <Label fx:id="exit" text="关闭">
+    <Label fx:id="exit" text="退出">
         <graphic>
             <StackPane styleClass="custom-jfx-list-view-icon-container">
             </StackPane>
