@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:id="root">
     <BorderPane>
-
         <top>
             <!--Toolbar工具栏-->
-            <fx:include fx:id="test" source="toolbar_main.fxml" />
+            <fx:include source="toolbar_main.fxml" />
         </top>
         <center>
             <!--Nav侧栏菜单-->
-            <JFXDrawer fx:id="drawer" styleClass="body" defaultDrawerSize="300" direction="LEFT" />
+            <JFXDrawer fx:id="drawer" defaultDrawerSize="300" direction="LEFT" />
         </center>
-
     </BorderPane>
 </StackPane>

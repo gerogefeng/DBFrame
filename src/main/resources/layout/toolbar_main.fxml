@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <VBox spacing="20"
       xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="cn.devifish.dbframe.view.widget.MainToolbar">
+      xmlns:fx="http://javafx.com/fxml">
 
     <JFXToolbar>
         <leftItems>
