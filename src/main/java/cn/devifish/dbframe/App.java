@@ -1,5 +1,6 @@
 package cn.devifish.dbframe;
 
+import cn.devifish.dbframe.util.Config;
 import cn.devifish.dbframe.view.main.MainView;
 import com.jfoenix.controls.JFXDecorator;
 import io.datafx.controller.flow.Flow;
@@ -29,7 +30,7 @@ public class App extends Application {
         // 使用Material Design风格标题栏
         JFXDecorator decorator = new JFXDecorator(stage, container.getView());
         decorator.setCustomMaximize(true);
-        decorator.setText("DB Frame 数据库工具");
+        decorator.setText(Config.APP_TITLE);
 
         // 注册CSS样式
         Scene scene = new Scene(decorator, 1205, 800);

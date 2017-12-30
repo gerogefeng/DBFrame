@@ -6,12 +6,12 @@ import com.jfoenix.controls.JFXListView;
 import io.datafx.controller.ViewController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.scene.control.Label;
 
 @ViewController(value = "/layout/pop_menu_main.fxml")
 public class MainToolbarPopup extends BaseView {
 
-    @FXML private JFXListView toolbarPopup;
+    @FXML private JFXListView<Label> toolbarPopup;
 
     @Override
     protected void initView() throws Exception {
@@ -20,11 +20,11 @@ public class MainToolbarPopup extends BaseView {
 
     @Override
     protected void initEvent() throws Exception {
-        toolbarPopup.setOnMouseClicked(event -> {
-            Node node = (Node) toolbarPopup.getSelectionModel().getSelectedItem();
-            String id = node.getId();
+        toolbarPopup.propagateMouseEventsToParent();
+        toolbarPopup.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            String id = newValue.getId();
             if (StringUtil.isNotEmpty(id)) {
-                switch (node.getId()) {
+                switch (id) {
                     case "about":
                         break;
                     case "exit":

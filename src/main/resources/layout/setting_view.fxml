@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.StackPane?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml">
 
-    <JFXTabPane fx:id="tabPane">
+    <JFXTabPane fx:id="tabPane" tabMinWidth="148" tabMinHeight="42">
+        <Tab text="常规">
 
+        </Tab>
+        <Tab text="界面">
+
+        </Tab>
+        <Tab text="路径">
+
+        </Tab>
+        <Tab text="其他">
+
+        </Tab>
     </JFXTabPane>
 
 </StackPane>

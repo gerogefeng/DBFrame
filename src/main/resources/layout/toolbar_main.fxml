@@ -18,7 +18,7 @@
                     </JFXHamburger>
                 </StackPane>
             </JFXRippler>
-            <Label text="主页"/>
+            <Label fx:id="title" text="主页"/>
         </leftItems>
         <rightItems>
             <JFXRippler fx:id="optionsRippler" maskType="CIRCLE" style="-fx-ripple-color:WHITE;">

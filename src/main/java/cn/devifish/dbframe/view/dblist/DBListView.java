@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.effects.JFXDepthManager;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.flow.Flow;
+import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.container.DefaultFlowContainer;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.animation.KeyFrame;
@@ -59,17 +60,16 @@ public class DBListView extends BaseView {
         ArrayList<Node> children = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             final int index = i;
-            ViewFlowContext tempContext = new ViewFlowContext();
-
             DefaultFlowContainer container = new DefaultFlowContainer();
-            cardViewFlow.createHandler(tempContext).start(container);
+            final FlowHandler flowHandler = cardViewFlow.createHandler();
+            flowHandler.start(container);
             StackPane cardView = (StackPane) container.getView().getChildren().get(0);
 
             JFXDepthManager.setDepth(cardView, 1);
 
-            JFXButton button = (JFXButton) cardView.lookup("#button");
-            Label title = (Label) cardView.lookup("#title");
-            Label subTitle = (Label) cardView.lookup("#subTitle");
+            final JFXButton button = (JFXButton) cardView.lookup("#button");
+            final Label title = (Label) cardView.lookup("#title");
+            final Label subTitle = (Label) cardView.lookup("#subTitle");
 
             button.setStyle("-fx-background-color: " + DefaultColor[(int) ((Math.random() * 12) % 12)]);
             button.setRipplerFill(Color.valueOf(DefaultColor[index % 12]));

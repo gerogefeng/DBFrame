@@ -10,7 +10,9 @@
         xmlns="http://javafx.com/javafx/2.2">
 
     <JFXListView fx:id="list">
-        <Label fx:id="button" text="Buttons"/>
+        <Label fx:id="home" text="主页"/>
+        <Label fx:id="setting" text="设置"/>
     </JFXListView>
 
 </StackPane>
+
