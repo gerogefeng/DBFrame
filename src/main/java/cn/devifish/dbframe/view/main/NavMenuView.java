@@ -1,6 +1,6 @@
 package cn.devifish.dbframe.view.main;
 
-import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.base.ContextView;
 import cn.devifish.dbframe.util.StringUtil;
 import cn.devifish.dbframe.view.dblist.DBListView;
 import cn.devifish.dbframe.view.setting.SettingView;
@@ -11,8 +11,6 @@ import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -21,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ViewController(value = "/layout/nav_menu_main.fxml")
-public class NavMenuView extends BaseView {
+public class NavMenuView extends ContextView {
 
     @FXML private StackPane root;
     @FXML private JFXListView<Label> list;
@@ -40,7 +38,7 @@ public class NavMenuView extends BaseView {
     }
 
     @Override
-    protected void initVar(ViewFlowContext context) throws Exception {
+    protected void initVar(ViewFlowContext context) {
         toolbarTitle = (Label) context.getRegisteredObject("toolbarTitle");
         contentFlow = (Flow) context.getRegisteredObject("contentFlow");
         contentFlowHandler = (FlowHandler) context.getRegisteredObject("contentFlowHandler");

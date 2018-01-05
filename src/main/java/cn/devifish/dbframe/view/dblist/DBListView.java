@@ -1,17 +1,13 @@
 package cn.devifish.dbframe.view.dblist;
 
-import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.base.ContextView;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.controls.JFXSnackbar;
-import com.jfoenix.effects.JFXDepthManager;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.ViewFactory;
 import io.datafx.controller.context.ViewContext;
-import io.datafx.controller.flow.Flow;
-import io.datafx.controller.flow.FlowHandler;
-import io.datafx.controller.flow.container.DefaultFlowContainer;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -29,7 +25,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 @ViewController(value = "/layout/db_list_view.fxml")
-public class DBListView extends BaseView {
+public class DBListView extends ContextView {
 
     @FXML private StackPane root;
     @FXML private ScrollPane scrollPane;
@@ -48,7 +44,7 @@ public class DBListView extends BaseView {
     }
 
     @Override
-    protected void initVar(ViewFlowContext context) throws Exception {
+    protected void initVar(ViewFlowContext context) {
         snackbar = new JFXSnackbar(root);
         snackbar.setPrefWidth(300);
     }

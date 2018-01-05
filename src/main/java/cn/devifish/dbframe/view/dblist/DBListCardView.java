@@ -1,6 +1,7 @@
 package cn.devifish.dbframe.view.dblist;
 
-import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.base.HoldView;
+import cn.devifish.dbframe.entity.DBUser;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.svg.SVGGlyph;
@@ -12,7 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 @ViewController(value = "/layout/db_list_item.fxml")
-public class DBListCardView extends BaseView {
+public class DBListCardView extends HoldView<DBUser> {
 
     @FXML private StackPane root;
     @FXML private Label title;
@@ -44,6 +45,11 @@ public class DBListCardView extends BaseView {
 
     }
 
+    @Override
+    public void initData(DBUser dbUser) {
+
+    }
+
     public StackPane getRoot() {
         return root;
     }
@@ -63,4 +69,5 @@ public class DBListCardView extends BaseView {
     public StackPane getHeader() {
         return header;
     }
+
 }

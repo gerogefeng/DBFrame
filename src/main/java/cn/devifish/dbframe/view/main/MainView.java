@@ -1,6 +1,6 @@
 package cn.devifish.dbframe.view.main;
 
-import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.base.ContextView;
 import cn.devifish.dbframe.view.dblist.DBListView;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -19,7 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 @ViewController(value = "/layout/main_view.fxml")
-public class MainView extends BaseView {
+public class MainView extends ContextView {
 
     @FXML private StackPane root;
     @FXML private StackPane titleBurgerContainer;
@@ -30,6 +30,11 @@ public class MainView extends BaseView {
 
     private JFXPopup toolbarPopup;
     private StackPane sidePane;
+
+    @Override
+    protected void initVar(ViewFlowContext context) {
+
+    }
 
     @Override
     protected void initView() throws Exception {
@@ -98,4 +103,5 @@ public class MainView extends BaseView {
         });
 
     }
+
 }

@@ -1,6 +1,6 @@
 package cn.devifish.dbframe.view.main;
 
-import cn.devifish.dbframe.base.BaseView;
+import cn.devifish.dbframe.base.ContextView;
 import cn.devifish.dbframe.util.StringUtil;
 import cn.devifish.dbframe.widget.MDDialog;
 import com.jfoenix.controls.JFXDialog;
@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 @ViewController(value = "/layout/pop_menu_main.fxml")
-public class MainToolbarPopup extends BaseView {
+public class MainToolbarPopup extends ContextView {
 
     @FXML private JFXListView<Label> toolbarPopup;
 
@@ -24,7 +24,7 @@ public class MainToolbarPopup extends BaseView {
     private JFXPopup popup;
 
     @Override
-    protected void initVar(ViewFlowContext context) throws Exception {
+    protected void initVar(ViewFlowContext context) {
         contentPane = (StackPane) context.getRegisteredObject("contentPane");
         popup = (JFXPopup) context.getRegisteredObject("toolbarPopup");
     }
