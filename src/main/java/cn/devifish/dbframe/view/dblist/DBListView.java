@@ -7,6 +7,8 @@ import com.jfoenix.controls.JFXScrollPane;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.effects.JFXDepthManager;
 import io.datafx.controller.ViewController;
+import io.datafx.controller.ViewFactory;
+import io.datafx.controller.context.ViewContext;
 import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.container.DefaultFlowContainer;
@@ -55,20 +57,15 @@ public class DBListView extends BaseView {
     protected void initView() throws Exception {
 
         // 加载数据库列表
-        Flow cardViewFlow = new Flow(DBListCardView.class);
         ArrayList<Node> children = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             final int index = i;
-            DefaultFlowContainer container = new DefaultFlowContainer();
-            final FlowHandler flowHandler = cardViewFlow.createHandler();
-            flowHandler.start(container);
-            StackPane cardView = (StackPane) container.getView().getChildren().get(0);
+            ViewContext<DBListCardView> viewContext = ViewFactory.getInstance().createByController(DBListCardView.class);
+            DBListCardView controller = viewContext.getController();
 
-            JFXDepthManager.setDepth(cardView, 1);
-
-            final JFXButton button = (JFXButton) cardView.lookup("#button");
-            final Label title = (Label) cardView.lookup("#title");
-            final Label subTitle = (Label) cardView.lookup("#subTitle");
+            final JFXButton button = controller.getButton();
+            final Label title = controller.getTitle();
+            final Label subTitle = controller.getSubTitle();
 
             button.setStyle("-fx-background-color: " + DefaultColor[(int) ((Math.random() * 12) % 12)]);
             button.setRipplerFill(Color.valueOf(DefaultColor[index % 12]));
@@ -91,7 +88,7 @@ public class DBListView extends BaseView {
                 snackbar.fireEvent(new JFXSnackbar.SnackbarEvent("你点击了 " + index));
             });
 
-            children.add(cardView);
+            children.add(viewContext.getRootNode());
         }
         masonryPane.getChildren().addAll(children);
         Platform.runLater(() -> scrollPane.requestLayout());

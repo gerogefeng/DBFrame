@@ -7,7 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<StackPane styleClass="card-view" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="root" styleClass="card-view" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1">
 
     <VBox>
         <StackPane fx:id="header" styleClass="card-header" VBox.vgrow="ALWAYS">

@@ -2,21 +2,27 @@ package cn.devifish.dbframe.view.dblist;
 
 import cn.devifish.dbframe.base.BaseView;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.svg.SVGGlyph;
 import io.datafx.controller.ViewController;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 @ViewController(value = "/layout/db_list_item.fxml")
 public class DBListCardView extends BaseView {
 
+    @FXML private StackPane root;
+    @FXML private Label title;
+    @FXML private Label subTitle;
     @FXML private JFXButton button;
     @FXML private StackPane header;
 
     @Override
     protected void initView() throws Exception {
+        JFXDepthManager.setDepth(root, 1);
 
         // 设置按钮图标
         SVGGlyph glyph = new SVGGlyph(-1,
@@ -38,4 +44,23 @@ public class DBListCardView extends BaseView {
 
     }
 
+    public StackPane getRoot() {
+        return root;
+    }
+
+    public Label getTitle() {
+        return title;
+    }
+
+    public Label getSubTitle() {
+        return subTitle;
+    }
+
+    public JFXButton getButton() {
+        return button;
+    }
+
+    public StackPane getHeader() {
+        return header;
+    }
 }
