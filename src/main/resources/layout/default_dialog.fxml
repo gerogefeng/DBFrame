@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import javafx.scene.control.Label?>
+<JFXDialogLayout xmlns:fx="http://javafx.com/fxml/1"
+                 xmlns="http://javafx.com/javafx/2.2"
+                 fx:id="root">
+    <heading>
+        <Label fx:id="title"/>
+    </heading>
+    <body>
+        <Label fx:id="content"/>
+    </body>
+    <actions>
+        <JFXButton fx:id="accept" styleClass="dialog-accept">确定</JFXButton>
+        <JFXButton fx:id="cancel" styleClass="dialog-accept">取消</JFXButton>
+    </actions>
+</JFXDialogLayout>

@@ -45,3 +45,9 @@
 .jfx-list-cell:odd, .jfx-list-cell:even {-fx-background-color: WHITE;}
 .jfx-list-cell:filled:hover, .jfx-list-cell:selected .label {-fx-text-fill: black;}
 .jfx-list-cell .jfx-rippler {-jfx-rippler-fill: #00BCD4;}
+
+/*Dialog样式*/
+.jfx-dialog-overlay-pane {-fx-background-color: rgba(0.0, 0.0, 0.0, 0.5);}
+.dialog-trigger {-fx-background-color: WHITE;-jfx-button-type: RAISED;-fx-font-size: 14px;}
+.jfx-layout-heading .label {-fx-font-size: 20px;}
+.dialog-accept {-fx-text-fill: #03A9F4;-fx-font-weight: BOLD;-fx-padding: 0.7em 0.8em;}

@@ -2,33 +2,54 @@ package cn.devifish.dbframe.view.main;
 
 import cn.devifish.dbframe.base.BaseView;
 import cn.devifish.dbframe.util.StringUtil;
+import cn.devifish.dbframe.widget.MDDialog;
+import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXListView;
 import io.datafx.controller.ViewController;
+import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 
 @ViewController(value = "/layout/pop_menu_main.fxml")
 public class MainToolbarPopup extends BaseView {
 
     @FXML private JFXListView<Label> toolbarPopup;
 
+    private JFXDialog dialog;
+    private StackPane contentPane;
+
+    @Override
+    protected void initVar(ViewFlowContext context) throws Exception {
+        contentPane = (StackPane) context.getRegisteredObject("ContentPane");
+    }
+
     @Override
     protected void initView() throws Exception {
-
+        dialog = new JFXDialog();
     }
 
     @Override
     protected void initEvent() throws Exception {
-        toolbarPopup.propagateMouseEventsToParent();
-        toolbarPopup.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            String id = newValue.getId();
+        toolbarPopup.setOnMouseClicked(event -> {
+            Node node = toolbarPopup.getSelectionModel().getSelectedItem();
+            String id = node.getId();
             if (StringUtil.isNotEmpty(id)) {
                 switch (id) {
+                    case "add":
+                        dialog.show(contentPane);
+                        break;
                     case "about":
                         break;
                     case "exit":
-                        Platform.exit();
+                        MDDialog.build()
+                                .setTitle("退出程序")
+                                .setContent("你确定要退出程序吗？")
+                                .setAcceptActionEvent(e -> Platform.exit())
+                                .getDialog()
+                                .show(contentPane);
                         break;
                     default: break;
                 }

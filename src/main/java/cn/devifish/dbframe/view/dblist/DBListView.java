@@ -11,6 +11,7 @@ import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.container.DefaultFlowContainer;
 import io.datafx.controller.flow.context.ViewFlowContext;
+import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -24,8 +25,6 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
-
-import static javafx.animation.Interpolator.EASE_BOTH;
 
 @ViewController(value = "/layout/db_list_view.fxml")
 public class DBListView extends BaseView {
@@ -79,15 +78,15 @@ public class DBListView extends BaseView {
             button.setScaleY(0);
             Timeline animation = new Timeline(new KeyFrame(
                     Duration.millis(240),
-                    new KeyValue(button.scaleXProperty(), 1, EASE_BOTH),
-                    new KeyValue(button.scaleYProperty(), 1, EASE_BOTH))
+                    new KeyValue(button.scaleXProperty(), 1, Interpolator.EASE_BOTH),
+                    new KeyValue(button.scaleYProperty(), 1, Interpolator.EASE_BOTH))
             );
             animation.setDelay(Duration.millis(100 * index + 1000));
             animation.play();
 
             // 绑定数据
             title.setText("阿里云");
-            subTitle.setText("127.0.0.1 (MySql)");
+            subTitle.setText("127.0.0.1 (MySQL)");
             button.setOnAction(event -> {
                 snackbar.fireEvent(new JFXSnackbar.SnackbarEvent("你点击了 " + index));
             });
