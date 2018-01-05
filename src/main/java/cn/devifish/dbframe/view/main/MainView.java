@@ -34,7 +34,6 @@ public class MainView extends BaseView {
     @Override
     protected void initView() throws Exception {
         ViewFlowContext context = getContext();
-        ViewFlowContext navContent = new ViewFlowContext();
 
         // 加载首页面内容
         final Flow innerFlow = new Flow(DBListView.class);
@@ -42,16 +41,20 @@ public class MainView extends BaseView {
         drawer.setContent(flowHandler.start(new AnimatedFlowContainer(Duration.millis(500), ContainerAnimations.SWIPE_LEFT)));
 
         // 加载POP菜单
+        toolbarPopup = new JFXPopup();
         final Flow toolbarPopupFlow = new Flow(MainToolbarPopup.class);
-        context.register("ContentPane", drawer.getContent().get(0));
-        final FlowHandler popupFlowHandler = toolbarPopupFlow.createHandler(context);
-        toolbarPopup = new JFXPopup(popupFlowHandler.start());
+        ViewFlowContext popContent = new ViewFlowContext();
+        popContent.register("contentPane", drawer.getContent().get(0));
+        popContent.register("toolbarPopup", toolbarPopup);
+        final FlowHandler popupFlowHandler = toolbarPopupFlow.createHandler(popContent);
+        toolbarPopup.setPopupContent(popupFlowHandler.start());
 
         // 加载Nav菜单
         final Flow sideMenuFlow = new Flow(NavMenuView.class);
+        ViewFlowContext navContent = new ViewFlowContext();
         navContent.register("toolbarTitle", title);
-        navContent.register("ContentFlowHandler", flowHandler);
-        navContent.register("ContentFlow", innerFlow);
+        navContent.register("contentFlowHandler", flowHandler);
+        navContent.register("contentFlow", innerFlow);
         final FlowHandler sideMenuFlowHandler = sideMenuFlow.createHandler(navContent);
         StackPane stackPane = sideMenuFlowHandler.start();
         drawer.setSidePane(stackPane);

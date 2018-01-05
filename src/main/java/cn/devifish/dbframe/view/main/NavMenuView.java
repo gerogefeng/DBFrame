@@ -42,8 +42,8 @@ public class NavMenuView extends BaseView {
     @Override
     protected void initVar(ViewFlowContext context) throws Exception {
         toolbarTitle = (Label) context.getRegisteredObject("toolbarTitle");
-        contentFlow = (Flow) context.getRegisteredObject("ContentFlow");
-        contentFlowHandler = (FlowHandler) context.getRegisteredObject("ContentFlowHandler");
+        contentFlow = (Flow) context.getRegisteredObject("contentFlow");
+        contentFlowHandler = (FlowHandler) context.getRegisteredObject("contentFlowHandler");
     }
 
     @Override

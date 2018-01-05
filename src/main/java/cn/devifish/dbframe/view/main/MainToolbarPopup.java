@@ -5,6 +5,7 @@ import cn.devifish.dbframe.util.StringUtil;
 import cn.devifish.dbframe.widget.MDDialog;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPopup;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Platform;
@@ -20,10 +21,12 @@ public class MainToolbarPopup extends BaseView {
 
     private JFXDialog dialog;
     private StackPane contentPane;
+    private JFXPopup popup;
 
     @Override
     protected void initVar(ViewFlowContext context) throws Exception {
-        contentPane = (StackPane) context.getRegisteredObject("ContentPane");
+        contentPane = (StackPane) context.getRegisteredObject("contentPane");
+        popup = (JFXPopup) context.getRegisteredObject("toolbarPopup");
     }
 
     @Override
@@ -53,6 +56,7 @@ public class MainToolbarPopup extends BaseView {
                         break;
                     default: break;
                 }
+                popup.hide();
             }
         });
     }
