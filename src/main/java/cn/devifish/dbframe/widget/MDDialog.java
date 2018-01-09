@@ -23,6 +23,7 @@ public class MDDialog {
     private JFXDialog dialog;
 
     public static MDDialog build() {
+        MDDialog _this = null;
         try {
             ViewContext<MDDialog> context = ViewFactory.getInstance().createByController(MDDialog.class);
 
@@ -31,11 +32,11 @@ public class MDDialog {
             controller.dialog.setContent((JFXDialogLayout) context.getRootNode());
             controller.setCancelActionEvent(event -> controller.dialog.close());
 
-            return controller;
+            _this = controller;
         } catch (FxmlLoadException e) {
             e.printStackTrace();
         }
-        return null;
+        return _this;
     }
 
     public MDDialog setTitle(String title) {

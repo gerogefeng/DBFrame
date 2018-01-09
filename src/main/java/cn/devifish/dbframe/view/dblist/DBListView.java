@@ -43,9 +43,9 @@ public class DBListView extends ContextView {
             DBListCardView controller = viewContext.getController();
             controller.setAnnotation(i);
 
-            final JFXButton button = controller.getButton();
-            final Label title = controller.getTitle();
-            final Label subTitle = controller.getSubTitle();
+            JFXButton button = controller.getButton();
+            Label title = controller.getTitle();
+            Label subTitle = controller.getSubTitle();
 
             // 绑定数据
             final int index = i;

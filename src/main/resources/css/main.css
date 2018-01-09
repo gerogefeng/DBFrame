@@ -50,4 +50,8 @@
 .jfx-dialog-overlay-pane {-fx-background-color: rgba(0.0, 0.0, 0.0, 0.5);}
 .dialog-trigger {-fx-background-color: WHITE;-jfx-button-type: RAISED;-fx-font-size: 14px;}
 .jfx-layout-heading .label {-fx-font-size: 20px;}
-.dialog-accept {-fx-text-fill: #03A9F4;-fx-font-weight: BOLD;-fx-padding: 0.7em 0.8em;}
+.dialog-button {-fx-text-fill: derive(#00BCD4, -10%);-fx-font-weight: BOLD;-fx-padding: 0.7em 0.8em;}
+
+/*Text Field样式*/
+.jfx-text-field, .jfx-password-field, .jfx-text-area {-fx-prompt-text-fill: #666;-jfx-focus-color: #00BCD4;-jfx-unfocus-color: #000;}
+.jfx-text-area .viewport {-fx-background-color: #F4F4F4;}
