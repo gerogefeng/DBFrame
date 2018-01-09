@@ -25,15 +25,12 @@ public class MDDialog {
     public static MDDialog build() {
         try {
             ViewContext<MDDialog> context = ViewFactory.getInstance().createByController(MDDialog.class);
-            MDDialog controller = context.getController();
 
+            MDDialog controller = context.getController();
             controller.dialog = new JFXDialog();
             controller.dialog.setContent((JFXDialogLayout) context.getRootNode());
+            controller.setCancelActionEvent(event -> controller.dialog.close());
 
-            controller.setCancelActionEvent(event -> {
-                System.out.println(event.getSource() +"---"+ controller.dialog);
-                controller.dialog.close();
-            });
             return controller;
         } catch (FxmlLoadException e) {
             e.printStackTrace();

@@ -6,11 +6,16 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.svg.SVGGlyph;
 import io.datafx.controller.ViewController;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 @ViewController(value = "/layout/db_list_item.fxml")
 public class DBListCardView extends HoldView<DBUser> {
@@ -20,6 +25,16 @@ public class DBListCardView extends HoldView<DBUser> {
     @FXML private Label subTitle;
     @FXML private JFXButton button;
     @FXML private StackPane header;
+
+    private static final String[] DefaultColor;
+
+    static {
+        DefaultColor = new String[]{
+                "#8F3F7E", "#B5305F", "#CE584A", "#DB8D5C", "#DA854E",
+                "#E9AB44", "#FEE435", "#99C286", "#01A05E", "#4A8895",
+                "#16669B", "#2F65A5", "#4E6A9C"
+        };
+    }
 
     @Override
     protected void initView() throws Exception {
@@ -48,6 +63,26 @@ public class DBListCardView extends HoldView<DBUser> {
     @Override
     public void initData(DBUser dbUser) {
 
+    }
+
+    /**
+     * 设置卡片按钮动画
+     * @param index 按钮次序下标
+     */
+    public void setAnnotation(int index) {
+        button.setStyle("-fx-background-color: " + DefaultColor[(int) ((Math.random() * 12) % 12)]);
+        button.setRipplerFill(Color.valueOf(DefaultColor[index % 12]));
+
+        // 对Button设置动画 从0到pref大小
+        button.setScaleX(0);
+        button.setScaleY(0);
+        Timeline animation = new Timeline(new KeyFrame(
+                Duration.millis(240),
+                new KeyValue(button.scaleXProperty(), 1, Interpolator.EASE_BOTH),
+                new KeyValue(button.scaleYProperty(), 1, Interpolator.EASE_BOTH))
+        );
+        animation.setDelay(Duration.millis(100 * index + 1000));
+        animation.play();
     }
 
     public StackPane getRoot() {
