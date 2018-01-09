@@ -19,9 +19,9 @@ public class MainToolbarPopup extends ContextView {
 
     @FXML private JFXListView<Label> toolbarPopup;
 
-    private JFXDialog dialog;
     private StackPane contentPane;
     private JFXPopup popup;
+    private JFXDialog exitDialog;
 
     @Override
     protected void initVar(ViewFlowContext context) {
@@ -31,7 +31,11 @@ public class MainToolbarPopup extends ContextView {
 
     @Override
     protected void initView() throws Exception {
-        dialog = new JFXDialog();
+        exitDialog = MDDialog.build()
+                .setTitle("退出程序")
+                .setContent("你确定要退出程序吗？")
+                .setAcceptActionEvent(e -> Platform.exit())
+                .getDialog();
     }
 
     @Override
@@ -42,17 +46,11 @@ public class MainToolbarPopup extends ContextView {
             if (StringUtil.isNotEmpty(id)) {
                 switch (id) {
                     case "add":
-                        dialog.show(contentPane);
                         break;
                     case "about":
                         break;
                     case "exit":
-                        MDDialog.build()
-                                .setTitle("退出程序")
-                                .setContent("你确定要退出程序吗？")
-                                .setAcceptActionEvent(e -> Platform.exit())
-                                .getDialog()
-                                .show(contentPane);
+                        exitDialog.show(contentPane);
                         break;
                     default: break;
                 }

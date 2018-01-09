@@ -1,8 +1,5 @@
 package cn.devifish.dbframe.base;
 
-import io.datafx.controller.flow.context.FXMLViewFlowContext;
-import io.datafx.controller.flow.context.ViewFlowContext;
-
 import javax.annotation.PostConstruct;
 
 public abstract class BaseView {
