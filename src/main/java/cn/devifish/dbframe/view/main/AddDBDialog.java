@@ -40,14 +40,14 @@ public class AddDBDialog extends HoldView<DBUser> {
 
     @Override
     protected void initEvent() throws Exception {
-        //选择数据库类型后操作
+        // 选择数据库类型后操作
         database.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             DataBase dataBase = DataBase.valueOf(newValue.getText());
             protocol.setText(dataBase.url);
             port.setText(String.valueOf(dataBase.port));
         });
 
-        //端口设置输入限制
+        // 端口设置输入限制
         port.setOnKeyReleased(event -> {
             String temp = event.getText();
             if (temp.length() > 0) {
@@ -60,12 +60,12 @@ public class AddDBDialog extends HoldView<DBUser> {
             }
         });
 
-        //测试配置连接性
+        // 测试配置连接性
         test.setOnAction(event -> {
 
         });
 
-        //保存设置
+        // 保存设置
         add.setOnAction(event -> {
             DBUser dbUser = new DBUser();
             dbUser.setName(name.getText());

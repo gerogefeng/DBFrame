@@ -85,7 +85,8 @@ public class MainView extends ContextView {
             animation.play();
         });
 
-        ((JFXListView<?>)sidePane.lookup("#list")).getSelectionModel().selectedItemProperty().addListener(observable -> {
+        JFXListView<?> list = (JFXListView<?>) sidePane.lookup("#list");
+        list.getSelectionModel().selectedItemProperty().addListener(observable -> {
             new Thread(() -> {
                 try {
                     Thread.sleep(150);

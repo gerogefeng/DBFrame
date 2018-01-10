@@ -1,6 +1,7 @@
 package cn.devifish.dbframe;
 
 import cn.devifish.dbframe.util.Config;
+import cn.devifish.dbframe.util.SettingUtil;
 import cn.devifish.dbframe.view.main.MainView;
 import cn.devifish.dbframe.widget.MDDialog;
 import com.jfoenix.controls.JFXDecorator;
@@ -21,6 +22,7 @@ public class App extends Application {
     @Override
     public void init() throws Exception {
         context = new ViewFlowContext();
+        SettingUtil.init();
     }
 
     @Override
