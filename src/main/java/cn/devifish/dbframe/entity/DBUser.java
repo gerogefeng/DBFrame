@@ -4,7 +4,9 @@ public class DBUser {
 
     private Integer id;
     private String name;
+    private DataBase dataBase;
     private String host;
+    private int port;
     private String user;
     private String password;
 
@@ -24,12 +26,28 @@ public class DBUser {
         this.name = name;
     }
 
+    public DataBase getDataBase() {
+        return dataBase;
+    }
+
+    public void setDataBase(DataBase dataBase) {
+        this.dataBase = dataBase;
+    }
+
     public String getHost() {
         return host;
     }
 
     public void setHost(String host) {
         this.host = host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public String getUser() {

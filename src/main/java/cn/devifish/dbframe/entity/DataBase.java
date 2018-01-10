@@ -2,8 +2,17 @@ package cn.devifish.dbframe.entity;
 
 public enum DataBase {
 
-    MySQL, SQLServer, Oracle;
+    MySQL("jdbc:mysql://", 3306),
+    MongoDB("jdbc:mysql://", 3306),
+    SQLServer("jdbc:sqlserver://", 1433),
+    Oracle("jdbc:oracle:thin:@//", 1521);
 
-    DataBase() { }
+    public String url;
+    public int port;
+
+    DataBase(String url, int port) {
+        this.url = url;
+        this.port = port;
+    }
 
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <JFXDialogLayout xmlns:fx="http://javafx.com/fxml/1"
                  xmlns="http://javafx.com/javafx/2.2"
+                 prefWidth="420"
                  fx:id="root">
     <heading>
         <Label fx:id="title" text="添加数据库"/>
@@ -16,18 +16,35 @@
             <padding>
                 <Insets top="16"/>
             </padding>
+            <JFXTextField fx:id="name" labelFloat="true" promptText="名称" text="新数据库"/>
             <JFXTextField fx:id="user" labelFloat="true" promptText="用户名"/>
             <JFXPasswordField fx:id="password" labelFloat="true" promptText="密码"/>
             <HBox alignment="CENTER_LEFT">
                 <Label text="数据库类型:" style="-fx-font-size: 15px;">
                     <HBox.margin>
-                        <Insets right="16"/>
+                        <Insets right="8"/>
                     </HBox.margin>
                 </Label>
                 <JFXComboBox fx:id="database" promptText="数据库类型"/>
             </HBox>
-            <JFXTextField fx:id="host" labelFloat="true" promptText="域名/IP地址"/>
-            <JFXTextField fx:id="port" labelFloat="true" promptText="端口"/>
+            <HBox alignment="CENTER_LEFT">
+                <Label fx:id="protocol" text="请选择数据库类型" style="-fx-font-size: 15px;">
+                    <HBox.margin>
+                        <Insets right="8"/>
+                    </HBox.margin>
+                </Label>
+                <JFXTextField fx:id="host" labelFloat="true" promptText="主机" prefWidth="156">
+                    <HBox.margin>
+                        <Insets right="8"/>
+                    </HBox.margin>
+                </JFXTextField>
+                <Label text=":" style="-fx-font-size: 15px;">
+                    <HBox.margin>
+                        <Insets right="8"/>
+                    </HBox.margin>
+                </Label>
+                <JFXTextField fx:id="port" labelFloat="true" promptText="端口" prefWidth="42" />
+            </HBox>
         </VBox>
     </body>
     <actions>

@@ -37,6 +37,7 @@ public class MainToolbarPopup extends ContextView {
         ViewContext<AddDBDialog> context = ViewFactory.getInstance().createByController(AddDBDialog.class);
         addDBDialog = new JFXDialog();
         addDBDialog.setContent((Region) context.getRootNode());
+        context.getController().initCancelEvent(addDBDialog);
     }
 
     @Override
